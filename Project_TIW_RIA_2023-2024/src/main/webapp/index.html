@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Login page</title>
+<script src="utils.js" charset="utf-8" defer></script>
+<script src="loginManagement.js" charset="utf-8" defer></script>
+
+</head>
+<body>
+	<h1>Login Page</h1>
+
+	<form action="#">
+	<fieldset>
+		Username: <input type="text" name="username" required> <br>
+		Password: <input type="password" name="pwd" required><br>
+		
+		<input id="loginbutton" type="button" value="login">
+		<input id="registerbutton" type="button" value="sign up">
+		<p id="errormessage"></p>
+	</fieldset></form>
+
+	<script>
+	  	document.getElementById("registerbutton").addEventListener("click", function() {
+	    window.location.href = "Register.html";
+	  });
+	</script>
+	
+</body>
+</html>

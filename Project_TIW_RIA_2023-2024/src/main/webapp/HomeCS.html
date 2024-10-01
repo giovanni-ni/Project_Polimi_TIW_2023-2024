@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>File System</title>
+    
+    
+    <style>
+        ul {
+            list-style-type: none; 
+        }
+
+        .folder::before {
+            content: "📁 "; 
+        }
+
+        .file::before {
+            content: "📄 "; 
+        }
+
+        ul ul {
+            margin-left: 20px; 
+        }
+
+        button {
+            margin: 2px;
+            padding: 5px;
+            font-size: 12px;
+            
+        }
+
+        footer {
+            margin-top: 20px;
+            text-align: center;
+        }
+        .folder button {
+            margin-left: 10px; /* 按钮之间的间距 */
+        }
+        
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgb(0,0,0);
+            background-color: rgba(0,0,0,0.4);
+            padding-top: 60px;
+        }
+        .modal-content {
+            background-color: #fefefe;
+            margin: 5% auto;
+            padding: 20px;
+            border: 1px solid #888;
+            width: 80%;
+        }
+        
+        .modal1 {
+            display: none;
+            position: fixed;
+            z-index: 1;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgb(0,0,0);
+            background-color: rgba(0,0,0,0.4);
+            padding-top: 60px;
+        }
+        .modal-content1 {
+            background-color: #fefefe;
+            margin: 5% auto;
+            padding: 20px;
+            border: 1px solid #888;
+            width: 80%;
+        }
+        .close {
+            color: #aaa;
+            float: right;
+            font-size: 28px;
+            font-weight: bold;
+        }
+        .close:hover,
+        .close:focus {
+            color: black;
+            text-decoration: none;
+            cursor: pointer;
+        }
+        .close1 {
+            color: #aaa;
+            float: right;
+            font-size: 28px;
+            font-weight: bold;
+        }
+        .close1:hover,
+        .close1:focus {
+            color: black;
+            text-decoration: none;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <h1>File System Structure</h1>
+    
+    <div>
+		<table class="logUser">
+			<tr>
+				<td> <!-- name --></td>
+				<td>&emsp;<a href="Logout">Logout</a></td>
+			</tr>
+		</table>
+	</div>
+	
+    <div>
+    	<button id='createRootFolder'>create Root Folder </button>
+    </div>
+    
+	 <div id="myModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2>aggiungi cartella</h2>
+            <form id="folderForm">
+                <label for="folderName">nome cartella:</label>
+                <input type="text" id="folderName" name="folderName" required>
+                <input type="submit" value="conferma">
+                
+                <p id="errormessage" style="color: red;"></p>
+            </form>
+        </div>
+    </div>
+    
+    <div id="myModal1" class="modal1">
+        <div class="modal-content1">
+            <span class="close1">&times;</span>
+            <h2>aggiungi file</h2>
+            <form id="fileForm">
+                <label for="fileName">nome file:</label>
+                <input type="text" id="fileName" name="fileName" required>
+                
+                <label for="fileType">tipo file:</label>
+                <input type="text" id="fileType" name="fileType" required>
+                
+                <label for="fileSummary">sommario file:</label>
+                <input type="text" id="fileSummary" name="fileSummary" required>
+                
+                <input type="submit" value="conferma">
+                
+                <p id="errorfilemessage" style="color: red;"></p>
+            </form>
+        </div>
+    </div>
+    
+    <div id="viewFileModal" class="modal">
+    <div class="modal-content">
+        <span class="close2">&times;</span>
+        <h2>Dettagli File</h2>
+        <div id="fileDetails">
+     		<p id="proprietario" ></p>
+     		<p id="nome"></p>
+     		<p id="data creazione"></p>
+     		<p id="tipo"></p>
+     		<p id="sommario"></p>
+     		<p id="errorMsg"></p>   
+     
+            <!-- Qui verranno mostrati i dettagli del file -->
+        </div>
+    </div>
+</div>
+
+<div id="confirmDeleteModal" class="modal">
+    <div class="modal-content">
+        <span class="closeConfirmDelete">&times;</span>
+        <h2>Conferma cancellazione</h2>
+        <p>Sei sicuro di voler cancellare questo elemento?</p>
+        <button id="confirmDeleteBtn">Conferma</button>
+        <button id="cancelDeleteBtn">Annulla</button>
+    </div>
+</div>
+
+    <div id="file-system">
+        <!-- Servlet -->
+    </div>
+
+	<div id="trashBin" style="border: 2px dashed red; padding: 20px; text-align: center;">
+    	Trash Bin
+	</div>
+
+    <footer>
+        <p>&copy; 2024 Your Company</p>
+    </footer>
+    
+    <script src="script.js"></script>
+</body>
+</html>
