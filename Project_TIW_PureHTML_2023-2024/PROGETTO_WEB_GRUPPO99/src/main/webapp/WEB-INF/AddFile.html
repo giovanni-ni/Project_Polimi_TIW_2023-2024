@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+	<head>
+		<meta charset = "UTF-8">
+		<title> Registration Page </title>
+		<link rel="stylesheet" href="./css/Style.css" />
+	</head>
+
+	<body>
+
+		<p>Fill the fields below and submit to create a new file</p>
+    	
+		<form action="addFile" method="POST">
+		  <fieldset>
+		      	<p>name: <input type="text" id="name" name="name" required/></p>
+		      	<p>sommario: <input type="text" id="sommario" name="sommario" required/></p>
+		      	<p>tipo: <input type="text" id="tipo" name="tipo" required/></p>
+		      	
+        		<p><input type="submit" value="submit" /></p>
+		  </fieldset>
+		  <p th:class="error" th:text=" ${errorMsg} " style="color: red;"></p>
+		</form>
+		
+		<a href="http://localhost:8080/PROGETTO_WEB_GRUPPO99/HomePage">previous page</a>
+	
+	</body>
+</html>
