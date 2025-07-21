@@ -8,4 +8,4 @@ There are two versions of the project:
 
 My project is based on the exercise 2 of the specification.
 
-Teacher: Piero Fraternali
+Professor: Piero Fraternali
